@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for Templates -->
+        <record id="view_template_tree" model="ir.ui.view">
+            <field name="name">inventory_aggregator.template.tree</field>
+            <field name="model">inventory_aggregator.template</field>
+            <field name="arch" type="xml">
+                <tree string="Templates">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="api_url"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Templates -->
+        <record id="view_template_form" model="ir.ui.view">
+            <field name="name">inventory_aggregator.template.form</field>
+            <field name="model">inventory_aggregator.template</field>
+            <field name="arch" type="xml">
+                <form string="Template">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="api_token"/>
+                            <field name="api_url"/>
+                        </group>
+                        <notebook>
+                            <page string="Aggregated Results">
+                                <field name="aggregated_result_ids">
+                                    <tree string="Results">
+                                        <field name="field_name"/>
+                                        <field name="field_type"/>
+                                        <field name="average"/>
+                                        <field name="min_val"/>
+                                        <field name="max_val"/>
+                                        <field name="popular_text"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="import_data" string="Import Data" type="object" class="oe_highlight"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Templates -->
+        <record id="action_template" model="ir.actions.act_window">
+            <field name="name">Templates</field>
+            <field name="res_model">inventory_aggregator.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

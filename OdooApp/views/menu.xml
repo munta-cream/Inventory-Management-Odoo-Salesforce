@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Main Menu -->
+        <menuitem id="menu_inventory_aggregator" name="Inventory Aggregator" sequence="10"/>
+
+        <!-- Templates Menu -->
+        <menuitem id="menu_template" name="Templates" parent="menu_inventory_aggregator" action="inventory_aggregator.action_template" sequence="10"/>
+    </data>
+</odoo>

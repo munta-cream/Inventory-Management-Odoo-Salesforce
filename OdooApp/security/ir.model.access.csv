@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_template_user,inventory_aggregator.template.user,inventory_aggregator.model_inventory_aggregator_template,base.group_user,1,1,1,1
+access_aggregated_result_user,inventory_aggregator.aggregated_result.user,inventory_aggregator.model_inventory_aggregator_aggregated_result,base.group_user,1,1,1,1
