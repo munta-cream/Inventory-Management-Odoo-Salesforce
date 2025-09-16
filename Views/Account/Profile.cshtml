@@ -1,0 +1,36 @@
+@model Inventory_Management_Requirements.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "User Profile";
+}
+
+<h2>User Profile</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4>@Model.UserName</h4>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Phone Number:</strong> @Model.PhoneNumber</p>
+
+        <a asp-controller="Salesforce" asp-action="Sync" class="btn btn-outline-warning">
+            <i class="fas fa-cloud-upload-alt"></i> Sync to Salesforce
+        </a>
+
+        <hr />
+
+        <h5>API Token</h5>
+        @if (string.IsNullOrEmpty(Model.ApiToken))
+        {
+            <form asp-action="GenerateApiToken" method="post">
+                <button type="submit" class="btn btn-primary">Generate API Token</button>
+            </form>
+        }
+        else
+        {
+            <p><strong>API Token:</strong> @Model.ApiToken</p>
+            <form asp-action="GenerateApiToken" method="post">
+                <button type="submit" class="btn btn-secondary">Regenerate API Token</button>
+            </form>
+        }
+    </div>
+</div>
